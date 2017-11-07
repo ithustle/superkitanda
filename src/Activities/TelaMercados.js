@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, Button, Text, ScrollView } from 'react-native';
+import { ImageBackground, StyleSheet, View, Button, Text, ScrollView } from 'react-native';
 
 import ListaMercados from '../components/ListaMercados';
 
@@ -14,10 +14,10 @@ export default class Mercado extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <Image source={imgFundo} style={styles.fundo} >
+            <ImageBackground source={imgFundo} style={styles.fundo} >
                 <View style={styles.container} >
                     <View style={styles.contentLogo} >
-                        <Image source={logo} style={styles.logotipo} resizeMode="stretch" />
+                        <ImageBackground source={logo} style={styles.logotipo} resizeMode="stretch" />
                     </View>
                     <View style={styles.contentTexto} >
                         <Text source={logo} style={styles.textoNormal} >Olá, Célio Garcia</Text>
@@ -27,7 +27,7 @@ export default class Mercado extends React.Component {
                         <ListaMercados nav={navigate} />
                     </ScrollView>
                 </View>
-            </Image>
+            </ImageBackground>
         )
     }
 }
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: "center",
-        margin: 12
+        margin: 12,
+        marginTop: 40
     },
     fundo: {
         flex: 1,
@@ -54,10 +55,11 @@ const styles = StyleSheet.create({
     },
     contentTexto: {
         justifyContent: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        backgroundColor: "transparent"
     },
     textoNormal: {
-        fontSize: 13,
+        fontSize: 14,
         color: '#fff',
         paddingBottom: 5
     },
