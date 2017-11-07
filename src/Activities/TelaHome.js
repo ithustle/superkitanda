@@ -9,7 +9,7 @@ export default class Home extends React.Component {
             headerTitle: <CustomHeader titulo={navigation.state.params.mercado} subtitulo={navigation.state.params.tipo} />,
             headerLeft: null,
             headerStyle: {
-                backgroundColor: "#936",
+                backgroundColor: "#136",
             },
             headerTitleStyle: {
                 justifyContent: "center"

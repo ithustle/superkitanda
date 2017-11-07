@@ -12,7 +12,7 @@ const Navigator = StackNavigator (
         Home: { screen: TelaHome}
     },
     {
-        initialRouteName: "Mercados"
+        initialRouteName: "Login"
     }
 );
 

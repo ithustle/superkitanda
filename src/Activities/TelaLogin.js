@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, Button, Text, TextInput, Keyboard } from 'react-native';
+import { ImageBackground, StyleSheet, View, TouchableHighlight, Text, TextInput, Keyboard } from 'react-native';
 
 const imgFundo = require('../imgs/fundo.png');
 const logo = require('../imgs/logo_white.png');
@@ -13,10 +13,10 @@ export default class Login extends React.Component {
     render() {
         const { navigate } = this.props.navigation
         return (
-            <Image source={imgFundo} style={styles.fundo} >
+            <ImageBackground source={imgFundo} style={styles.fundo} >
                 <View style={styles.container} >
                     <View style={styles.contentLogo} >
-                        <Image source={logo} style={styles.logotipo} resizeMode="stretch" />
+                        <ImageBackground source={logo} style={styles.logotipo} resizeMode="stretch" />
                     </View>
                     <View style={styles.contentTexto} >
                         <Text source={logo} style={styles.textoBemVindo} >Seja Bem-vindo de volta!</Text>
@@ -39,33 +39,37 @@ export default class Login extends React.Component {
                         />
                     </View>
                     <View style={styles.contentBotao} >
-                        <Button 
-                            title="Entrar"
-                            color="#184"
-                            accessibilityLabel="Entrar para a sua conta"
+                        <TouchableHighlight
+                            style={styles.botaoEntrar}
+                            activeOpacity={0.8}
+                            underlayColor="#195f26"
                             onPress={
                                 () => {
                                     navigate("Mercados");
                                     Keyboard.dismiss();
                                 }
                             }
-                        />
+                        >
+                        <Text style={styles.textoBotao} >Entrar</Text>
+                        </TouchableHighlight>
                         <View style={styles.line} />
-                        <Button 
-                            title="Abrir conta"
-                            color="#c93"
-                            accessibilityLabel="Abrir uma nova conta"
+                        <TouchableHighlight
+                            style={styles.botaoAbreConta}
+                            activeOpacity={0.8}
+                            underlayColor="#C7882A"
                             onPress={
                                 () => null
                             }
-                        />
+                        >
+                        <Text style={styles.textoBotao} >Abrir conta</Text>
+                        </TouchableHighlight>
                     </View>
                     <View style={{ position: "absolute", left: 0, right: 0, bottom: 10 }} >
                         <View style={styles.line} />
-                        <Text style={{color: "#fff", textAlign: "center"}} >Experimente! A primeira entrega é grátis!</Text>
+                        <Text style={{color: "#fff", textAlign: "center", backgroundColor: 'transparent'}} >Experimente! A primeira entrega é grátis!</Text>
                     </View>
                 </View>
-            </Image>
+            </ImageBackground>
         )
     }
 }
@@ -93,7 +97,8 @@ const styles = StyleSheet.create({
     contentTexto: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        backgroundColor: 'transparent'
     },
     textoBemVindo: {
         fontSize: 18,
@@ -101,11 +106,32 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     textoNormal: {
-        fontSize: 13,
+        fontSize: 14,
         color: '#fff',
     },
     contentBotao: {
         justifyContent: 'center'
+    },
+    botaoEntrar: {
+        height: 30,
+        flex: 1,
+        justifyContent: "center",
+        paddingTop: 20,
+        paddingBottom: 20,
+        backgroundColor: "#195f26"
+    },
+    botaoAbreConta: {
+        height: 30,
+        flex: 1,
+        justifyContent: "center",
+        paddingTop: 20,
+        paddingBottom: 20,
+        backgroundColor: "#C7882A"
+    },
+    textoBotao: {
+        color: "#ffffff",
+        fontSize: 18,
+        textAlign: "center"
     },
     contentInputText: {
         marginBottom: 20
@@ -119,7 +145,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     line: {
-        borderWidth: .2, 
+        borderWidth: .6, 
         borderColor: "#fff", 
         marginTop: 10,
         marginBottom: 10
