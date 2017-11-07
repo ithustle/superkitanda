@@ -7,6 +7,7 @@ export default class Home extends React.Component {
     static navigationOptions = ({ navigation }) => (
         {
             headerTitle: <CustomHeader titulo={navigation.state.params.mercado} subtitulo={navigation.state.params.tipo} />,
+            headerLeft: null,
             headerStyle: {
                 backgroundColor: "#936",
             },
