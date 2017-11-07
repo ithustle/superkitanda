@@ -1,2 +1,2 @@
 # superkitanda
-Cross platform mobile app
+Cross platform mobile app for SK
